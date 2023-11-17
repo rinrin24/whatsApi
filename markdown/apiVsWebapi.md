@@ -7,8 +7,38 @@ webapi：apiに対し、
 - webブラウザでも利用が可能（例えば、*Instagram*等のSNSがPCのブラウザ上から閲覧したり、投稿が可能なのもWebapiのお陰です）
   
 という特徴があります。SNSに用いられている事からapiよりもWebapiの方が身近に感じやすく、非プログラマにも馴染みがあると言えるでしょう。
-## RESTapi、SOAP、xml over http、json over httpの違い
-### 1.RESTapi
+## xml over http,json over http,RESTapi,SOAPの違い
+### 1.XML over HTTP
+*XML over HTTP*は、XML（eXtensible Markup Language）を使用してデータをやり取りするための通信プロトコルです。HTTP（Hypertext Transfer Protocol）は、Web上でデータを転送するためのプロトコルであり、このHTTPを利用する事により、XMLデータを送受信します。*XML over HTTP*は、**異なるシステムやプラットフォーム間でデータをやり取りするための汎用的な手段**として広く利用されています。
+
+- データ交換フォーマットとしてのXML
+
+     XMLはマークアップ言語であり、データを構造化して表現するために使用されます。XMLを使用することで、異なるプログラミング言語やプラットフォーム間でデータを共有できます。
+
+- HTTPプロトコルを介した通信
+
+    *XML over HTTP*は、HTTPプロトコルを基盤にしていて、クライアントとサーバーはHTTPリクエストとレスポンスを使用する事でXMLデータを送受信しています。通信はクライアントが**HTTPリクエストを送信**し、サーバーがそれに**XML形式のレスポンス**を返す形で行われます。
+- Webサービスとの結びつき
+
+    *XML over HTTP*は、HTTP経由でXMLデータを送受信し、異なるプラットフォームやアプリケーション間でデータを共有するためにWebサービスなどに利用されています。
+### 2.JSON over HTTP
+*JSON over HTTP*は、JSON（JavaScript Object Notation）を使用してデータをやり取りするための通信プロトコルです。*JSON over HTTP*は前項と同様に、HTTPを利用してJSONデータを送受信します。以下に*JSON over HTTP*の主な特徴や用途について解説します。
+
+- データ交換フォーマットとしてのJSON
+
+    JSONは軽量で読みやすいデータ交換フォーマットであり、*JavaScript*オブジェクトの表現方法に基づいています。XMLと同様にJSONを使用することで、異なるプログラミング言語やプラットフォーム間でデータを簡単に共有できます。
+- HTTPプロトコルを介した通信
+
+    *JSON over HTTP*は、XMLと同様にHTTPプロトコルを基盤にしています。XMLとは、クライアントが送信した**HTTPリクエスト**に対し、**JSON形式のレスポンス**を返すという違いがあります。
+RESTful Webサービス:
+
+JSON over HTTPは、RESTful Webサービスとの相性が非常に良いです。RESTfulサービスは、通常はJSONなどの軽量なデータフォーマットを使用してデータを交換します。HTTPメソッド（GET、POST、PUT、DELETE等）を使用して、リソースに対する操作を表現します。RESTfulについては、次項で解説します。
+
+API（Application Programming Interface）:
+
+多くのWeb APIは、JSON over HTTPを使用してデータを提供します。クライアントがHTTPリクエストを送り、サーバーがJSON形式のデータを含むレスポンスを返すことで、アプリケーションやサービスが連携できます。
+JSON over HTTPは、そのシンプルさと柔軟性から広く利用され、Web開発やAPI統合などさまざまな領域で重要な役割を果たしています。
+### 3.RESTapi
 RESTapiは、*Representational State Transfer*の略です。
 ロイ・フィールディングの論文%*%{#ff0000}を元にした、6つの項目をすべて満たす通信インターフェイスを設計するためのアーキテクチャスタイルの事を言います。（以下は論文中に記されている6項目）
 - *ClientServer*（送信者と受信者の独立）
@@ -18,16 +48,19 @@ RESTapiは、*Representational State Transfer*の略です。
 - *Layered System*（階層システム）
 - *Code-On-Demand*（API レスポンスに、必要に応じてよく使うコードのショートカットを作成することができる）
 
-
-#### 1.a RESTのメリット
+#### 3.a RESTのメリット
 REST はメッセージサイズが小さいため、高速で効率的に処理できます。RESTは XML、JSON、プレーンテキスト、HTML をサポートしていて、一般的にはJSONが使われています。また応答をキャッシュできる為データをキャッシュに保存して、ページの読み込み時間を短縮することで作業効率の向上が見込めます。RESTは幅広く使える柔軟性が好まれ、広く普及しています。
-#### 1.b RESTのデメリット
+#### 3.b RESTのデメリット
 RESTにはプロトコルの規定があり、https上でしか動作しません。またRESTは設計思想の一つであり %**%{#ff0000}、厳格な規定が存在しない為、**人によって記述方法が異なる**というケースが生じてしまい、中身が分かりにくくなってしまうというデメリットがあります。
 
 ---
 %*%{#ff0000}https://ics.uci.edu/~fielding/pubs/dissertation/top.htm
 
 %**%{#ff0000}この思想を満たす事を*RESTful*であると言い、次項で説明するSOAPとは異なりRESTは思想の事なので、*RESTful*であるかどうかはプログラマに委ねられています。
-### 2.SOAPapi
+### 4.SOAPapi
 SOAPapiは*Simple Object Access Protocol*の略です。
 設計思想であるRESTに対してSOAPは厳格な通信ルールを定義するプロトコルで、アプリケーション間の通信用に使われるプロトコルです。主に企業間のシステム連携や、チーム内で使用するアプリ間の通信のためのインターフェースなどに用いられて来ました。SOAP はプロトコルであるため独立しており、httpsを含むどのトランスポートプロトコルでも動作するというメリットがあります。しかし、複雑性とオーバーヘッドが大きく、負荷が高いためあまり普及しませんでした。（因みに、SOAPの次に使われるようになったのが前項で説明したRESTです。）
+
+
+
+
