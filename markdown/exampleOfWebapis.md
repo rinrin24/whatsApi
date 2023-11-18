@@ -1,5 +1,21 @@
 # WebAPIの実用例
 
+## 気象情報API
+気象情報を取得できるAPIは多数公開されており、その利用例も多岐に渡っています。
+
+<!-- 
+resources:
+https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/weather.html
+https://github.com/chubin/wttr.in
+https://openweathermap.org/
+owmを使ってみる: 使い方の解説、実用例はなし
+https://qiita.com/nownabe/items/aeac1ce0977be963a740
+m5stickを玄関に取り付けて傘の要不要を報告させる
+https://qiita.com/nih/items/5b122e9b43f3f10e7acf
+m5stackの画面に天気を表示
+https://qiita.com/kz1017/items/09a8c2aef2ece60a6128
+-->
+
 ## 図書館API
 
 全国の図書館資料の横断検索を行うことができるサービス「カーリル」は、その蔵書検索機能をWebAPIとして提供しています。
