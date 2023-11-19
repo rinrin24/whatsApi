@@ -3,6 +3,8 @@
 ## 気象情報API
 気象情報を取得できるAPIは多数公開されており、その利用例も多岐に渡っています。
 
+[OpenWetherMap](https://openweathermap.org/)は、各地点の現在の天候、予報、履歴を取得できるAPIを提供しています。
+
 <!-- 
 resources:
 https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/weather.html
