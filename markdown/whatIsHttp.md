@@ -48,3 +48,10 @@ Content-Type: text/html
 
 ## まとめ
 HTTPによる通信では、初めにWebブラウザなどのクライアントから**リクエスト**が行われます。リクエストを受け取ったサーバは返答として**レスポンス**を返します。
+
+## 参考文献
+- [HTTPの概要 | MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/HTTP/Overview) (2023/11/20 閲覧)
+- [GET - HTTP | MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/HTTP/Methods/GET) (2023/11/20 閲覧)
+- [POST - HTTP | MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/HTTP/Methods/POST) (2023/11/20 閲覧)
+- [Safe (安全) (HTTP メソッド) | MDN Web Docs](https://developer.mozilla.org/ja/docs/Glossary/Safe/HTTP)
+- [Idempotent (べき等) | MDN Web Docs](https://developer.mozilla.org/ja/docs/Glossary/Idempotent)
