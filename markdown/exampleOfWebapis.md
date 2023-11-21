@@ -3,13 +3,16 @@
 ## 気象情報API
 気象情報を取得できるAPIは多数公開されており、その利用例も多岐に渡っています。
 
-[OpenWetherMap](https://openweathermap.org/)は、各地点の現在の天候、予報、履歴を取得できるAPIを提供しています。
+[OpenWetherMap](https://openweathermap.org/)は、各地点の現在の天候、予報、履歴を取得できるAPIを提供しています。APIを利用するために取得する**APIキー**と、気象情報を取得したい都市の**都市ID**を指定してAPIにリクエストを送ることで、全世界各都市の気象情報を取得することができます。
+
+潤沢な公開気象情報と強力な機械学習アルゴリズムを用いた気象予報の正確性などが高く評価されており、Google Maps JavaScript APIやUbuntu My Weather Indicatorなどの様々なサービスに利用されています。このほかにも多くの個人開発者によって利用されており、M5Stickの画面に傘の要不要を表示させる装置や、天候に応じたアドバイスをするLINEBotなどの作例が存在します。
 
 <!-- 
 resources:
-https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/weather.html
 https://github.com/chubin/wttr.in
 https://openweathermap.org/
+https://openweathermap.org/technology
+https://openweathermap.org/examples
 owmを使ってみる: 使い方の解説、実用例はなし
 https://qiita.com/nownabe/items/aeac1ce0977be963a740
 m5stickを玄関に取り付けて傘の要不要を報告させる
