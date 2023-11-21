@@ -7,21 +7,7 @@
 
 潤沢な公開気象情報と強力な機械学習アルゴリズムを用いた気象予報の正確性などが高く評価されており、Google Maps JavaScript APIやUbuntu My Weather Indicatorなどの様々なサービスに利用されています。このほかにも多くの個人開発者によって利用されており、M5Stickの画面に傘の要不要を表示させる装置や、天候に応じたアドバイスをするLINEBotなどの作例が存在します。
 
-<!-- 
-resources:
-https://github.com/chubin/wttr.in
-https://openweathermap.org/
-https://openweathermap.org/technology
-https://openweathermap.org/examples
-owmを使ってみる: 使い方の解説、実用例はなし
-https://qiita.com/nownabe/items/aeac1ce0977be963a740
-m5stickを玄関に取り付けて傘の要不要を報告させる
-https://qiita.com/nih/items/5b122e9b43f3f10e7acf
-m5stackの画面に天気を表示
-https://qiita.com/kz1017/items/09a8c2aef2ece60a6128
--->
-
-## 図書館API
+## カーリル図書館API
 全国の図書館資料の横断検索を行うことができるサービス「カーリル」は、その蔵書検索機能をWebAPIとして提供しています。
 
 カーリルでは、各図書館が導入している複数の蔵書管理システムに対応するために、各蔵書検索システムに**システムID**が割り振られており、これを用いて自治体ごとの蔵書の情報を取得することができます。
@@ -53,3 +39,21 @@ Random Dog APIは、犬の画像や動画をランダムに取得できるAPIを
 resources:
 https://random.dog/
  -->
+
+## 参考文献
+### 気象情報API
+- [OpenWeatherMap](https://openweathermap.org/) (2023/11/21 閲覧)
+- [Weather model | OpenWeatherMap](https://openweathermap.org/technology)
+- [Partners and Solutions | OpenWeatherMap](https://openweathermap.org/technology)
+- [【M5Stick】天気予報が雨の時、傘を持つように促す装置を作った[天気の戸締まり] by @nih | Qiita](https://qiita.com/nih/items/5b122e9b43f3f10e7acf)
+- [毎日のお天気と雨の日の準備を朝にLINEに送ってくれるBot by @rechiba3 | Qiita](https://qiita.com/rechiba3/items/faa2e79c725266584de2)
+
+### カーリル図書館API
+- [図書館API | カーリル](http://calil.jp/doc/api.html)
+- [カーリルAPIコンテスト　結果発表！ | カーリルのブログ](https://blog.calil.jp/2010/05/api_01.html)
+- [Xユーザーの読書猿『独学大全』14刷26万部、『文章大全』執筆中さん: 「県立レベルの図書館で『独学大全』を所蔵していただいている都道府県 カーリルAPI &amp; Google Chart APIを使いました。関東〜甲信越が空白になってますが、市町村立図書館では所蔵していただいてます。」 / X](https://t.co/5QjAfCCvdT)
+- [その本、図書館にあります。](https://sonohon.com/)
+
+### Random Dog API
+- [random.dog](https://random.dog/)
+- [adenflorian/random.dog: woof | GitHub](https://github.com/AdenFlorian/random.dog)
