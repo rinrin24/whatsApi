@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTTP&#x3068;&#x306f;&#xff1f;</title>
+
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="httpとは">HTTPとは？</h1>
+    <p>インターネット上で情報の送受信を行う際には、<strong>HTTP</strong>(<strong>H</strong>yper<strong>t</strong>ext <strong>T</strong>ransfer
+        <strong>P</strong>rotocol)と呼ばれる約束事に従って通信が行われます。ここでは、Webブラウザで<code>https://developer.mozilla.org/index.html</code>を表示する場合を例に、HTTPによる通信の流れを追ってみましょう。
+    </p>
+    <p>HTTPの通信は<strong>クライアント</strong>と<strong>サーバー</strong>の間で行われます。クライアントは、サーバー上にある文書や画像といったリソースの送信や、サーバー上の情報の変更などをサーバーに要求します。
+    </p>
+    <p>今回の例では、Webブラウザはサーバー上のファイル<code>index.html</code>を要求しており、クライアントに該当します。一方、サーバーはクライアントの要求に応えてリソースを返したり、サーバー上の情報を変更したりします。今回はWebブラウザからの要求を受け取って<code>index.html</code>を返すWebサーバーがサーバーに該当します。
+    </p>
+    <p>HTTPによる通信は、TCP/IPなどによる通信の働きによって、クライアントとサーバーの間での通信路がすでに確立された状態で始まります。クライアントからのリクエスト送信によってHTTPの通信がスタートし、サーバーからこれに対応するレスポンスが送信されることで通信が完了します。
+    </p>
+    <h2 id="リクエスト">リクエスト</h2>
+    <p>クライアントがサーバーに送るリソース送信や情報更新などの要求を、<strong>リクエスト</strong>と呼びます。以下は<code>developer.mozilla.org/index.html</code>の送信を要求するリクエストの例であり、Webブラウザがこのページの閲覧を試みる際にWebサーバーに送信されます。
+    </p>
+    <pre><code class="language-HTTP">GET /index.html HTTP1.1
+<span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>developer.mozilla.org
+<span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+</code></pre>
+    <p>HTTPのリクエストは、大きく分けて<strong>メソッド</strong>と<strong>ヘッダ</strong>の2つの要素によって構成されています。</p>
+    <h3 id="メソッド">メソッド</h3>
+    <p>メソッドはリクエストの1行目に書かれており、クライアントが実行したい操作を指定します。今回の例ではサーバーからリソースを取得したいので、<code>GET</code>メソッドを使用しています。同じ1行目にはこのほかに、サーバー内でリソースが存在する場所を示す<strong>パス</strong>と、HTTPプロトコルのバージョンが記されています。
+    </p>
+    <p>今回の例のように、<code>GET</code>メソッドはサーバーからリソースを取得したいときに使用します。HTTPの仕様上、<code>GET</code>メソッドはサーバーの状態を変化させないメソッドであり、サーバーからの情報取得のみを行うリクエストに使用されることが望ましいメソッドです。
+    </p>
+    <p><code>POST</code>メソッドはサーバーにデータを送信する際に使用します。<code>POST</code>メソッドを使用するリクエストでは、サーバーに送信するデータを<strong>ボディ</strong>として付加したリクエストが送信され、その内容に従ってデータ更新などの処理がサーバー上で行われます。
+    </p>
+    <p><code>PUT</code>や<code>PATCH</code>といったメソッドも<code>POST</code>と同様にサーバー上の情報の更新を行うメソッドですが、その振る舞いには差異があります。<code>PUT</code>メソッドによるリクエストでは、既存のリソースの内容がリクエストボディによって完全に置き換えられます。一方<code>PATCH</code>によるリクエストでは、サーバー上のリソースの一部分のみが更新されます。
+    </p>
+    <p>HTTPのリクエストに用いるメソッドには、それぞれ役割と理想的な振る舞いが定められており、行いたい操作の性質によってメソッドを使い分けることが大切です。</p>
+    <h3 id="ヘッダ">ヘッダ</h3>
+    <p>ヘッダには、サーバーに渡す追加情報をリクエストに付加する役割があります。今回の例では、2行目の<code>Host</code>ヘッダにリクエストが送信される先のサーバーのホスト名が、3行目の<code>User-Agent</code>ヘッダにクライアントの情報がそれぞれ指定されています。
+    </p>
+    <h2 id="レスポンス">レスポンス</h2>
+    <p>クライアントからのリクエストを受け取ったサーバーは、これに対する返答、すなわち<strong>レスポンス</strong>を返します。以下は<code>developer.mozilla.org/index.html</code>へのリクエストに対するレスポンスの例です。
+    </p>
+    <pre><code class="language-HTTP"><span class="hljs-meta">HTTP/1.1</span> <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Date</span><span class="hljs-punctuation">: </span>Sat, 09 Oct 2010 14:28:02 GMT
+<span class="hljs-attribute">Server</span><span class="hljs-punctuation">: </span>Apache
+<span class="hljs-attribute">Last-Modified</span><span class="hljs-punctuation">: </span>Tue, 01 Dec 2009 20:18:22 GMT
+<span class="hljs-attribute">ETag</span><span class="hljs-punctuation">: </span>&quot;51142bc1-7449-479b075b2891b&quot;
+<span class="hljs-attribute">Accept-Ranges</span><span class="hljs-punctuation">: </span>bytes
+<span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">: </span>29769
+<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>text/html
+
+<span class="language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>...（ここに、リクエストした 29769 バイトのウェブページが来ます）
+</span></span></code></pre>
+    <p>1行目にはHTTPプロトコルのバージョン、さらにレスポンスの性質を示す数字とそれに対応するキーワードの組である<strong>ステータスコード</strong>が示されています。</p>
+    <p>今回の例では、ステータスコードは<code>200</code>であり、リクエストが成功したことを示しています。400番台のステータスコードはリクエストに問題があることを示しており、存在しないリソースにアクセスした際に返される<code>404</code>や、リソース要求の権限がないことを示す<code>401</code>などが多く見られます。このほか、500番台のステータスコードはサーバー側に問題があることを示しています。
+    </p>
+    <p>2行目から始まる要素は<strong>ヘッダ</strong>であり、リクエストヘッダと同様にクライアントへ渡す追加情報が付加されています。</p>
+    <p>ヘッダの末尾には空行が置かれ、その次の行から要求されたリソースそのものである<strong>ボディ</strong>が始まっています。</p>
+    <h2 id="まとめ">まとめ</h2>
+    <p>HTTPによる通信では、初めにWebブラウザなどのクライアントから<strong>リクエスト</strong>が送信されます。リクエストを受け取ったサーバーは返答として<strong>レスポンス</strong>を返します。
+    </p>
+    <h2 id="参考文献">参考文献</h2>
+    <ul>
+        <li><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Overview">HTTPの概要 | MDN Web Docs</a> (2023/11/20 閲覧)
+        </li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Methods/GET">GET - HTTP | MDN Web Docs</a>
+            (2023/11/20 閲覧)</li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Methods/POST">POST - HTTP | MDN Web Docs</a>
+            (2023/11/20 閲覧)</li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Glossary/Safe/HTTP">Safe (安全) (HTTP メソッド) | MDN Web Docs</a>
+        </li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Glossary/Idempotent">Idempotent (べき等) | MDN Web Docs</a></li>
+        <li><a href="https://developer.mozilla.org/ja/docs/Web/HTTP/Status">HTTPレスポンスステータスコード</a></li>
+    </ul>
+
+
+
+</body>
+
+</html>
